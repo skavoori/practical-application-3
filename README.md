@@ -37,8 +37,19 @@ The application uses the [data](data/bank-additional-full.csv) for understanding
 
 # Findings 
 
-
+- Best performing model turned out to be Tuned Decision Tree
+- The Tuned Decision Tree achieved an F1-score of 0.4320 and ROC-AUC of 0.6608. Compared to the untuned Decision Tree (CV F1: 0.3577), the tuned version shows a change in performance.
+- The best parameters for this model high F1-score turned out be as following. 
+        'model__max_depth': 3,
+        'model__min_samples_leaf': 1,
+        'model__min_samples_split': 2
+- **Feature importances** from the **Tuned Decision Tree** match the tables: **`duration`** ~**52%**, **`nr.employed`** ~**40%**, then **`pdays`** and **`cons.conf.idx`**. The tree is largely a **duration + macro / timing** story on preprocessed features.
 
 # Summary 
+
+- Retired and Students are more likely to subscribe to Cash Deposits. So, the marketing campaign should target these customers. 
+- Single customers show high subscription rates as well. 
+- Customer with university degrees should be targeted more. 
+- The **strongest profile driver is `duration`**, and that **stable pre-call features** (channel, prior outcomes, demographics) matter more for **prospective** lists unless scores are used only on **historical** batches similar to training.
 
 
